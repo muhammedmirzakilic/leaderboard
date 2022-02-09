@@ -17,9 +17,16 @@ const matchResult = async (event) => {
     awayScore = 1;
   }
   const promises = [];
-  //there is no requirements for the team's match history.
-  //So I just added the match to the match history.
-  promises.push(matchDB.lpush(enums.matches, JSON.stringify({ home, away })));
+  promises.push(
+    matchDB
+      .multi()
+      //there is no requirements for the team's match history.
+      //So I just added the match to the match history.
+      .lpush(enums.matches, JSON.stringify({ home, away }))
+      .hincrby(enums.teamKey(home.teamId), enums.matchCount, 1)
+      .hincrby(enums.teamKey(away.teamId), enums.matchCount, 1)
+      .exec()
+  );
   const homePointRage = utils.combinePointsAndAverage(homeScore, homeAv);
   const awayPointRage = utils.combinePointsAndAverage(awayScore, awayAv);
   promises.push(

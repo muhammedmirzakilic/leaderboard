@@ -5,5 +5,7 @@ module.exports = {
     password: process.env.REDIS_PASSWORD || "",
     matchDB: process.env.REDIS_MATCH_DB || 0,
     leaderboardDB: process.env.REDIS_LEADERBOARD_DB || 1,
+    maxConcurrentRequestCount:
+      process.env.REDIS_MAX_CONCURRENT_REQUEST_COUNT || 1000,
   },
 };
