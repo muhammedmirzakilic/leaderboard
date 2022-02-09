@@ -6,7 +6,8 @@
   "author": "Muhammed Mirza <muhammedmirzakilic@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "serverless offline"
+    "dev": "serverless offline",
+    "deploy": "serverless deploy"
   },
   "dependencies": {
     "@middy/core": "^2.5.7",
