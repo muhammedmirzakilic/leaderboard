@@ -4,5 +4,16 @@
   "main": "index.js",
   "repository": "https://github.com/muhammedmirzakilic/leaderboard.git",
   "author": "Muhammed Mirza <muhammedmirzakilic@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "serverless offline"
+  },
+  "dependencies": {
+    "@middy/core": "^2.5.7",
+    "@middy/http-json-body-parser": "^2.5.7",
+    "ioredis": "^4.28.5"
+  },
+  "devDependencies": {
+    "serverless-offline": "^8.4.0"
+  }
 }

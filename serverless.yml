@@ -1,19 +1,20 @@
 org: muhammedmirza
 app: leaderboard
 service: leaderboard
-frameworkVersion: '3'
+frameworkVersion: "3"
+useDotenv: true
 
 provider:
   name: aws
   runtime: nodejs14.x
 
 functions:
-  hello:
-    handler: handler.hello
+  matchResult:
+    handler: src/matchResult.handler
     events:
       - httpApi:
-          path: /
-          method: get
+          path: /matchResult
+          method: post
 
 plugins:
   - serverless-offline
