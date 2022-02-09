@@ -154,6 +154,12 @@ functions:
       - httpApi:
           path: /leaderboard
           method: get
+  flushDb:
+    handler: src/flushDb.handler
+    events:
+      - httpApi:
+          path: /flushDb
+          method: get
 
 plugins:
   - serverless-offline
