@@ -4,7 +4,7 @@ const { leaderboardDB, matchDB } = require("./redis");
 const config = require("./config");
 
 const leaderboard = async (event) => {
-  const { start, end } = event.queryStringParameters;
+  const { start, end } = event.queryStringParameters || { start: 0, end: 10 };
   const teams = await getTeams(start, end);
   const teamsWithMatchCounts = await addMatchCountToTeams(teams);
   return {
