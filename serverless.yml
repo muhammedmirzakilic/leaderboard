@@ -15,6 +15,12 @@ functions:
       - httpApi:
           path: /matchResult
           method: post
+  leaderboard:
+    handler: src/leaderboard.handler
+    events:
+      - httpApi:
+          path: /leaderboard
+          method: get
 
 plugins:
   - serverless-offline
