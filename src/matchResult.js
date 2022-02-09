@@ -39,6 +39,9 @@ const matchResult = async (event) => {
   await Promise.all(promises);
   return {
     statusCode: 201,
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({
       message: "Match result added successfully",
     }),

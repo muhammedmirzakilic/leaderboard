@@ -9,6 +9,9 @@ const leaderboard = async (event) => {
   const teamsWithMatchCounts = await addMatchCountToTeams(teams);
   return {
     statusCode: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify(teamsWithMatchCounts),
   };
 };
